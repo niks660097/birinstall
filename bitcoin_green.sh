@@ -66,8 +66,8 @@ source ~/.bashrc
 mkdir -p ~/bin
 echo ""
 echo "Configure your masternodes now!"
-echo "Type the IP of this server, followed by [ENTER]:"
-read IP
+#echo "Type the IP of this server, followed by [ENTER]:"
+#read IP
 
 #MNCOUNT=""
 #re='^[0-9]+$'
@@ -86,18 +86,19 @@ ALIAS="$1"
 
 #echo ""
 #echo "Enter port for node $ALIAS"
-PORT="$2"
+IP="$2"
+PORT="$3"
 
 #echo ""
 #echo "Enter masternode private key for node $ALIAS"
-PRIVKEY="$3"
+PRIVKEY="$4"
 
 #echo ""
 #echo "Enter RPC Port (Any valid free port: i.E. 17100)"
 RPCPORT="17100"
-if [[ "$4" != "" ]]
+if [[ "$5" != "" ]]
 then
-RPCPORT="$4"
+RPCPORT="$5"
 fi
 
 ALIAS=${ALIAS,,}
