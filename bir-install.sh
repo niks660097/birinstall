@@ -10,28 +10,48 @@ COIN_NAME='BirakeCoin'
 COIN_BIN_NAME='BirakeCoin'
 COIN_PORT=39697
 RPC_PORT=39698
+MASTERNODE_PRIVATE_KEY=''
+RPC_USERNAME='marknetwork'
+RPC_PASSWORD='H29vlMahBZvroDi'
 BIND=""
+
 if [[ "$1" != "" ]]
 then
-CONFIGFOLDER="$1"
-fi
-
-if [[ "$2" != "" ]]
-then
-COIN_NAME="$2"
+MASTERNODE_PRIVATE_KEY="$1"
 fi
 
 NODEIP=$(curl -s4 icanhazip.com)
 
+if [[ "$2" != "" ]]
+then
+NODEIP="$2"
+BIND="bind=$2"
+fi
+
 if [[ "$3" != "" ]]
 then
-NODEIP="$3"
-BIND="bind=$3"
+RPC_USERNAME="$3"
 fi
 
 if [[ "$4" != "" ]]
 then
-RPC_PORT="$4"
+RPC_PASSWORD="$4"
+fi
+
+if [[ "$5" != "" ]]
+then
+CONFIGFOLDER="$5"
+fi
+
+if [[ "$6" != "" ]]
+then
+COIN_NAME="$6"
+fi
+
+
+if [[ "$7" != "" ]]
+then
+RPC_PORT="$7"
 fi
 
 
@@ -170,11 +190,11 @@ fi
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-  RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
-  RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
+#  RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
+#  RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
-rpcuser=$RPCUSER
-rpcpassword=$RPCPASSWORD
+rpcuser=$RPC_USERNAME
+rpcpassword=$RPC_PASSWORD
 listen=1
 prune=500
 server=1
@@ -200,7 +220,7 @@ function download_snapshot() {
 function create_key() {
   echo -e "Enter your ${RED}$COIN_NAME Masternode Private Key${NC}.\nLeave it blank to generate a new ${RED}$COIN_NAME Masternode Private Key${NC} for you:"
   read -e COINKEY
-  if [[ -z "$COINKEY" ]]; then
+  if [[ -z "$COIN_KEY" ]]; then
   $COIN_DAEMON -datadir=$CONFIGFOLDER -daemon
   sleep 30
   if [ -z "$(ps axo cmd:100 | grep $COIN_DAEMON)" ]; then
@@ -226,7 +246,7 @@ logintimestamps=1
 maxconnections=64
 masternode=1
 externalip=$NODEIP:$COIN_PORT
-masternodeprivkey=$COINKEY
+masternodeprivkey=$MASTERNODE_PRIVATE_KEY
 EOF
 }
 
@@ -330,7 +350,7 @@ function important_information() {
 function setup_node() {
   create_config
   download_snapshot
-  create_key
+#  create_key
   update_config
   enable_firewall
   important_information
