@@ -26,6 +26,7 @@ GREEN="\033[0;32m"
 NC='\033[0m'
 MAG='\e[1;35m'
 
+COINKEY="$1"
 
 
 function display_logo() {
@@ -183,27 +184,27 @@ addnode=206.189.173.84:6667
 EOF
 }
 
-function create_key() {
-  echo -e "${YELLOW}Enter your ${RED}$COIN_NAME Masternode GEN Key${NC}. Or press enter generate new Genkey"
-  read -e COINKEY
-  if [[ -z "$COINKEY" ]]; then
-  $COIN_PATH$COIN_DAEMON -daemon
-  sleep 30
-  if [ -z "$(ps axo cmd:100 | grep $COIN_DAEMON)" ]; then
-   echo -e "${RED}$COIN_NAME server couldn not start. Check /var/log/syslog for errors.{$NC}"
-   exit 1
-  fi
-  COINKEY=$($COIN_PATH$COIN_CLI masternode genkey)
-  if [ "$?" -gt "0" ];
-    then
-    echo -e "${RED}Wallet not fully loaded. Let us wait and try again to generate the GEN Key${NC}"
-    sleep 30
-    COINKEY=$($COIN_PATH$COIN_CLI masternode genkey)
-  fi
-  $COIN_PATH$COIN_CLI stop
-fi
-clear
-}
+#function create_key() {
+#  echo -e "${YELLOW}Enter your ${RED}$COIN_NAME Masternode GEN Key${NC}. Or press enter generate new Genkey"
+#  read -e COINKEY
+#  if [[ -z "$COINKEY" ]]; then
+#  $COIN_PATH$COIN_DAEMON -daemon
+#  sleep 30
+#  if [ -z "$(ps axo cmd:100 | grep $COIN_DAEMON)" ]; then
+#   echo -e "${RED}$COIN_NAME server couldn not start. Check /var/log/syslog for errors.{$NC}"
+#   exit 1
+#  fi
+#  COINKEY=$($COIN_PATH$COIN_CLI masternode genkey)
+#  if [ "$?" -gt "0" ];
+#    then
+#    echo -e "${RED}Wallet not fully loaded. Let us wait and try again to generate the GEN Key${NC}"
+#    sleep 30
+#    COINKEY=$($COIN_PATH$COIN_CLI masternode genkey)
+#  fi
+#  $COIN_PATH$COIN_CLI stop
+#fi
+#clear
+#}
 
 function update_config() {
   sed -i 's/daemon=1/daemon=0/' $CONFIGFOLDER/$CONFIG_FILE
@@ -333,7 +334,7 @@ function important_information() {
 function setup_node() {
   get_ip
   create_config
-  create_key
+#  create_key
   update_config
   enable_firewall
   #install_sentinel
