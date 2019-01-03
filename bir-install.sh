@@ -369,8 +369,8 @@ checks
 prepare_system
 compile_node
 get_ip
-if [[ "$3" != "" ]]
-then
-NODEIP="$3"
-fi
+#if [[ "$3" != "" ]]
+#then
+#NODEIP="$3"#
+#fi
 setup_node
