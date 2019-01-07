@@ -86,12 +86,12 @@ ALIAS="$1"
 
 #echo ""
 #echo "Enter port for node $ALIAS"
-IP="$2"
-PORT="$3"
+IP=$(curl -s4 icanhazip.com)
+PORT="9333"
 
 #echo ""
 #echo "Enter masternode private key for node $ALIAS"
-PRIVKEY="$4"
+PRIVKEY="$2"
 
 #echo ""
 #echo "Enter RPC Port (Any valid free port: i.E. 17100)"
