@@ -9,6 +9,7 @@ COIN_NAME='LogisCoin'
 COIN_PORT=48484
 
 NODEIP=$(curl -s4 icanhazip.com)
+COINKEY="$1"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -283,7 +284,7 @@ function important_information() {
 function setup_node() {
   get_ip
   create_config
-  create_key
+  #create_key
   update_config
   enable_firewall
   important_information
