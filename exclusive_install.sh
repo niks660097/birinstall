@@ -31,4 +31,4 @@ staking=0
 bind=$NODEIP
 EOF
 }
-create_config()
+create_config
