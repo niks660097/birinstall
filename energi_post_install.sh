@@ -21,7 +21,6 @@ maxconnections=24
 externalip=$NODEIP
 masternode=1
 masternodeprivkey=$PRIVATE_KEY
-$BIND
 EOF
 }
 create_config()
