@@ -35,4 +35,4 @@ port=26969
 
 EOF
 }
-create_config()
+create_config
