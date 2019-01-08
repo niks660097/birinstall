@@ -28,6 +28,7 @@ masternode=1
 masternodeprivkey=$PRIVATE_KEY
 masternodeaddr=$NODEIP:$PORT
 staking=0
+bind=$NODEIP
 EOF
 }
 create_config()
