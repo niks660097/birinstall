@@ -24,3 +24,4 @@ masternodeprivkey=$PRIVATE_KEY
 $BIND
 EOF
 }
+create_config()
