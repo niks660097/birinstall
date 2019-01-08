@@ -23,4 +23,4 @@ masternode=1
 masternodeprivkey=$PRIVATE_KEY
 EOF
 }
-create_config()
+create_config
