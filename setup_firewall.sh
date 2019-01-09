@@ -15,9 +15,9 @@ sudo ufw allow 39105
 sudo ufw allow 48484
 sudo ufw allow 9797
 sudo ufw allow 7214
-echo "y" | ufw enable >/dev/null 2>&1
 sudo ufw reload
 sudo ufw status
+echo "y" | ufw enable >/dev/null 2>&1
 #{Birake: 39697,
  #                   DarkPayCoin: 6667,
   #                  SnodeCoin: 18988,
