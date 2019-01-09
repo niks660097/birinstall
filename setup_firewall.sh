@@ -15,6 +15,7 @@ sudo ufw allow 23230
 sudo ufw allow 39105
 sudo ufw allow 48484
 sudo ufw allow 9797
+sudo ufw allow 7214
 sudo ufw reload
 sudo ufw status
 #{Birake: 39697,
@@ -27,5 +28,6 @@ sudo ufw status
        #             SafeInsureCoin: 39105,
         #            LogisCoin: 48484,
          #           Energi: 9797,
+         #PayDayCoin: 7214,
           #          }
 
