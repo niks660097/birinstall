@@ -1,3 +1,5 @@
+#!/bin/bash
+
 git clone https://github.com/exclusivecoin/Exclusive.git
 cd ExclusiveCoin/src
 sudo apt-get install libssl-dev
