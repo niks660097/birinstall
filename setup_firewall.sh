@@ -1,8 +1,7 @@
 #!/bin/bash
 
 sudo apt-get install ufw
-sudo ufw enable
-sudo ufw default deny outgoing
+echo "y" | ufw enable >/dev/null 2>&1
 sudo ufw default deny incoming
 sudo ufw allow 22
 sudo ufw allow 39697
@@ -16,6 +15,7 @@ sudo ufw allow 39105
 sudo ufw allow 48484
 sudo ufw allow 9797
 sudo ufw allow 7214
+echo "y" | ufw enable >/dev/null 2>&1
 sudo ufw reload
 sudo ufw status
 #{Birake: 39697,
