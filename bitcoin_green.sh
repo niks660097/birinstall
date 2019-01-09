@@ -19,8 +19,6 @@ echo && echo && echo
 
 #if [[ $DOSETUP =~ "y" ]] ; then
 sudo apt-get update
-sudo apt-get -y upgrade
-sudo apt-get -y dist-upgrade
 sudo apt-get install -y nano htop git
 sudo apt-get install -y software-properties-common
 sudo apt-get install -y build-essential libtool autotools-dev pkg-config libssl-dev
