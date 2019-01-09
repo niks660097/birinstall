@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo apt-get install ufw
 sudo ufw enable
 sudo ufw default deny outgoing
