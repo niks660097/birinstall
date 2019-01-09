@@ -8,3 +8,4 @@ sudo sh ./depends/install-dependencies.sh
 sudo ./autogen.sh && sudo ./configure --disable-tests --without-gui && sudo make clean && sudo make -j$(nproc)
 cd $HOME
 mkdir ~/.lux
+#you have to add lux/src directory to path before starting daemon
