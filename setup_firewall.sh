@@ -2,7 +2,7 @@
 
 sudo apt-get install ufw
 echo "y" | ufw enable >/dev/null 2>&1
-sudo ufw default deny incoming
+#sudo ufw default deny incoming
 sudo ufw allow 22
 sudo ufw allow 39697
 sudo ufw allow 6667
