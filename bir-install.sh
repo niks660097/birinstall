@@ -21,7 +21,7 @@ MASTERNODE_PRIVATE_KEY="$1"
 fi
 
 NODEIP=$(curl -s4 icanhazip.com)
-BIND="bind=$2"
+BIND="bind=$NODE_IP"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
