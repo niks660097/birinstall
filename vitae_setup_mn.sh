@@ -1,4 +1,5 @@
 #!/bin/bash
+VITAE_PATH="/root/.vitae"
 VITAE_CONF_PATH="/root/.vitae/vitae.conf"
 NODEIP=$(curl -s4 icanhazip.com)
 COIN_PORT=8765
@@ -17,5 +18,7 @@ externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$MASTERNODE_PRIVATE_KEY
 EOF
 }
+mkdir $VITAE_PATH
+touch $VITAE_CONF_PATH
 update_config
 vitaed -daemon
