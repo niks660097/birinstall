@@ -7,6 +7,7 @@ UNZIP=`which unzip`
 DIR=$PWD
 USER_UID=`id -u $USER`
 USER_GID=`id -g $USER`
+PRIV_KEY="$1"
 
 echo "================================================================="
 echo "=== Running Setup Script for Install and Configure PayDayCoin: ==="
@@ -58,22 +59,22 @@ config_masternode()
 
 echo "Initial Masternode Configuration"
 
-PID=$(pidof pdd 2>&1)
-if [ "$PID" == "" ]; then
-pdd > /dev/null 2>&1
-wait_pdd_starts
-fi
+# PID=$(pidof pdd 2>&1)
+# if [ "$PID" == "" ]; then
+# pdd > /dev/null 2>&1
+# wait_pdd_starts
+# fi
 
-node=`pdd getaddressesbyaccount "" |  grep -oe "[0-9a-zA-Z]*"`
-echo Masternode address $node > $HOME/masternode_info.txt
-key=`pdd masternode genkey`
-pk=`pdd dumpprivkey $node`
+# node=`pdd getaddressesbyaccount "" |  grep -oe "[0-9a-zA-Z]*"`
+# echo Masternode address $node > $HOME/masternode_info.txt
+# key=`pdd masternode genkey`
+# pk=`pdd dumpprivkey $node`
 
-echo "Stopping daemon"
+# echo "Stopping daemon"
 
-pdd stop > /dev/null 2>&1
+# pdd stop > /dev/null 2>&1
 sleep 1
-wait_pdd_stops
+# wait_pdd_stops
 
 echo "Configuring masternode"
 
@@ -84,16 +85,16 @@ do
 echo $param >> $HOME/.PayDay/PayDay.conf
 done
 
-echo Masternode key $key >> $HOME/masternode_info.txt
-echo masternodeprivkey=$key >> $HOME/.PayDay/PayDay.conf
+echo Masternode key $PRIV_KEY >> $HOME/masternode_info.txt
+echo masternodeprivkey=$PRIV_KEY >> $HOME/.PayDay/PayDay.conf
 echo masternode=1 >> $HOME/.PayDay/PayDay.conf
 echo masternodesoftlock=1 >> $HOME/.PayDay/PayDay.conf
 
 echo "Starting daemon"
 
-echo Masternode wallet private key $pk >> $HOME/masternode_info.txt
-echo Your masternode data stored in $HOME/masternode.info.txt
-cat $HOME/masternode_info.txt
+# echo Masternode wallet private key $pk >> $HOME/masternode_info.txt
+# echo Your masternode data stored in $HOME/masternode.info.txt
+# cat $HOME/masternode_info.txt
 
 }
 
