@@ -10,8 +10,8 @@ function update_config() {
  RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
  RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > $CONF_FILE_PATH
-rpcuser=$RPC_USERNAME
-rpcpassword=$RPC_PASSWORD
+rpcuser=$RPCUSER
+rpcpassword=$RPCPASSWORD
 logintimestamps=1
 maxconnections=64
 masternode=1
