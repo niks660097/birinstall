@@ -48,12 +48,12 @@ rm /usr/bin/bitcoingreen*
 mv bitcoingreen-1.3.0/bin/bitcoingreen* /usr/bin
 rm -r bitcoingreen-1.3.0
 
-sudo apt-get install -y ufw
-sudo ufw allow ssh/tcp
-sudo ufw limit ssh/tcp
-sudo ufw logging on
-echo "y" | sudo ufw enable
-sudo ufw status
+#sudo apt-get install -y ufw
+#sudo ufw allow ssh/tcp
+#sudo ufw limit ssh/tcp
+#sudo ufw logging on
+#echo "y" | sudo ufw enable
+#sudo ufw status
 
 mkdir -p ~/bin
 echo 'export PATH=~/bin:$PATH' > ~/.bash_aliases
@@ -140,7 +140,7 @@ echo "" >> bitcoingreen.conf_TEMP
 echo "port=$PORT" >> bitcoingreen.conf_TEMP
 echo "masternodeaddr=$IP:$PORT" >> bitcoingreen.conf_TEMP
 echo "masternodeprivkey=$PRIVKEY" >> bitcoingreen.conf_TEMP
-sudo ufw allow $PORT/tcp
+#sudo ufw allow $PORT/tcp
 
 cp bitcoingreen.conf_TEMP $CONF_DIR/bitcoingreen.conf
 cp bitg_peers.dat $CONF_DIR/peers.dat
