@@ -80,7 +80,7 @@ wget https://github.com/XeZZoR/scripts/raw/master/BITG/peers.dat -O bitg_peers.d
 #for i in `seq 1 1 $MNCOUNT`; do
 #echo ""
 #echo "Enter alias for new node"
-ALIAS="$1"
+ALIAS="bitcoingreen"
 
 #echo ""
 #echo "Enter port for node $ALIAS"
@@ -89,15 +89,11 @@ PORT="9333"
 
 #echo ""
 #echo "Enter masternode private key for node $ALIAS"
-PRIVKEY="$2"
+PRIVKEY="$1"
 
 #echo ""
 #echo "Enter RPC Port (Any valid free port: i.E. 17100)"
 RPCPORT="17100"
-if [[ "$5" != "" ]]
-then
-RPCPORT="$5"
-fi
 
 ALIAS=${ALIAS,,}
 CONF_DIR=~/.bitcoingreen_$ALIAS
