@@ -21,39 +21,7 @@ MASTERNODE_PRIVATE_KEY="$1"
 fi
 
 NODEIP=$(curl -s4 icanhazip.com)
-
-if [[ "$2" != "" ]]
-then
-NODEIP="$2"
 BIND="bind=$2"
-fi
-
-if [[ "$3" != "" ]]
-then
-RPC_USERNAME="$3"
-fi
-
-if [[ "$4" != "" ]]
-then
-RPC_PASSWORD="$4"
-fi
-
-if [[ "$5" != "" ]]
-then
-CONFIGFOLDER="$5"
-fi
-
-if [[ "$6" != "" ]]
-then
-COIN_NAME="$6"
-fi
-
-
-if [[ "$7" != "" ]]
-then
-RPC_PORT="$7"
-fi
-
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -190,11 +158,11 @@ fi
 
 function create_config() {
   mkdir $CONFIGFOLDER >/dev/null 2>&1
-#  RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
-#  RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
+ RPCUSER=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w10 | head -n1)
+ RPCPASSWORD=$(tr -cd '[:alnum:]' < /dev/urandom | fold -w22 | head -n1)
   cat << EOF > $CONFIGFOLDER/$CONFIG_FILE
-rpcuser=$RPC_USERNAME
-rpcpassword=$RPC_PASSWORD
+rpcuser=$RPCUSER
+rpcpassword=$RPCPASSWORD
 listen=1
 prune=500
 server=1
