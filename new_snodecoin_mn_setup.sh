@@ -2,7 +2,7 @@
 FOLDER_PATH="/root/.snodecoin"
 CONF_FILE_PATH="/root/.snodecoin/snodecoin.conf"
 NODEIP=$(curl -s4 icanhazip.com)
-COIN_PORT=6667
+COIN_PORT=18988
 MASTERNODE_PRIVATE_KEY="$1"
 
 function update_config() {
