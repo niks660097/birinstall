@@ -80,7 +80,7 @@ wget https://github.com/XeZZoR/scripts/raw/master/BITG/peers.dat -O bitg_peers.d
 #for i in `seq 1 1 $MNCOUNT`; do
 #echo ""
 #echo "Enter alias for new node"
-ALIAS="bitcoingreen"
+# ALIAS="bitcoingreen"
 
 #echo ""
 #echo "Enter port for node $ALIAS"
@@ -95,16 +95,16 @@ PRIVKEY="$1"
 #echo "Enter RPC Port (Any valid free port: i.E. 17100)"
 RPCPORT="17100"
 
-ALIAS=${ALIAS,,}
-CONF_DIR=~/.bitcoingreen_$ALIAS
+# ALIAS=${ALIAS,,}
+CONF_DIR=~/.bitcoingreen
 
 # Create scripts
-echo '#!/bin/bash' > ~/bin/bitcoingreend_$ALIAS.sh
-echo "bitcoingreend -daemon -conf=$CONF_DIR/bitcoingreen.conf -datadir=$CONF_DIR "'$*' >> ~/bin/bitcoingreend_$ALIAS.sh
-echo '#!/bin/bash' > ~/bin/bitcoingreen-cli_$ALIAS.sh
-echo "bitcoingreen-cli -conf=$CONF_DIR/bitcoingreen.conf -datadir=$CONF_DIR "'$*' >> ~/bin/bitcoingreen-cli_$ALIAS.sh
-echo '#!/bin/bash' > ~/bin/bitcoingreen-tx_$ALIAS.sh
-echo "bitcoingreen-tx -conf=$CONF_DIR/bitcoingreen.conf -datadir=$CONF_DIR "'$*' >> ~/bin/bitcoingreen-tx_$ALIAS.sh
+echo '#!/bin/bash' > ~/bin/bitcoingreend.sh
+echo "bitcoingreend -daemon -conf=$CONF_DIR/bitcoingreen.conf -datadir=$CONF_DIR "'$*' >> ~/bin/bitcoingreend.sh
+echo '#!/bin/bash' > ~/bin/bitcoingreen-cli.sh
+echo "bitcoingreen-cli -conf=$CONF_DIR/bitcoingreen.conf -datadir=$CONF_DIR "'$*' >> ~/bin/bitcoingreen-cli.sh
+echo '#!/bin/bash' > ~/bin/bitcoingreen-tx.sh
+echo "bitcoingreen-tx -conf=$CONF_DIR/bitcoingreen.conf -datadir=$CONF_DIR "'$*' >> ~/bin/bitcoingreen-tx.sh
 chmod 755 ~/bin/bitcoingreen*.sh
 
 mkdir -p $CONF_DIR
@@ -145,5 +145,5 @@ echo "masternodeprivkey=$PRIVKEY" >> bitcoingreen.conf_TEMP
 cp bitcoingreen.conf_TEMP $CONF_DIR/bitcoingreen.conf
 cp bitg_peers.dat $CONF_DIR/peers.dat
 
-sh ~/bin/bitcoingreend_$ALIAS.sh
+sh ~/bin/bitcoingreend.sh
 #done
