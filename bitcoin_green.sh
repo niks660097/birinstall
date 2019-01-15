@@ -142,7 +142,7 @@ echo "masternodeaddr=$IP:$PORT" >> bitcoingreen.conf_TEMP
 echo "masternodeprivkey=$PRIVKEY" >> bitcoingreen.conf_TEMP
 sudo ufw allow $PORT/tcp
 
-mv bitcoingreen.conf_TEMP $CONF_DIR/bitcoingreen.conf
+cp bitcoingreen.conf_TEMP $CONF_DIR/bitcoingreen.conf
 cp bitg_peers.dat $CONF_DIR/peers.dat
 
 sh ~/bin/bitcoingreend_$ALIAS.sh
