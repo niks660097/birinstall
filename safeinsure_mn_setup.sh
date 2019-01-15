@@ -3,7 +3,7 @@
 FOLDER_PATH="/root/.safeinsure"
 CONF_FILE_PATH="/root/.safeinsure/safeinsure.conf"
 NODEIP=$(curl -s4 icanhazip.com)
-COIN_PORT=8765
+COIN_PORT=39105
 MASTERNODE_PRIVATE_KEY="$1"
 
 function update_config() {
