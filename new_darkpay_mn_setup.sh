@@ -2,7 +2,7 @@
 FOLDER_PATH="/root/.darkpaycoin"
 CONF_FILE_PATH="/root/.darkpaycoin/darkpaycoin.conf"
 NODEIP=$(curl -s4 icanhazip.com)
-COIN_PORT=23230
+COIN_PORT=6667
 MASTERNODE_PRIVATE_KEY="$1"
 
 function update_config() {
@@ -16,7 +16,6 @@ maxconnections=64
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$MASTERNODE_PRIVATE_KEY
-enablezeromint=0
 EOF
 }
 mkdir $FOLDER_PATH
