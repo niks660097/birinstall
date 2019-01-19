@@ -12,3 +12,4 @@ sudo apt-get install software-properties-common
 sudo apt-get install python-software-properties
 sudo apt-get install g++
 sudo apt-get install libdb4.8-dev libdb4.8++-dev -y
+sudo apt-get install unzip
