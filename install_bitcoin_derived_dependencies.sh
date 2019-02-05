@@ -4,7 +4,7 @@ sudo apt-get update
 sudo apt-get install libtool libevent-dev bsdmainutils python3
 sudo apt-get install automake
 sudo apt-get install libdb++-dev
-sudo apt-get install build-essential libtool autotools-dev
+sudo apt-get install build-essential autotools-dev
 sudo apt-get install autoconf pkg-config libssl-dev
 sudo apt-get install libboost-all-dev
 sudo apt-get install libminiupnpc-dev
