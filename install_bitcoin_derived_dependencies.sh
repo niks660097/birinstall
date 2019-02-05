@@ -18,3 +18,12 @@ sudo apt-get install libprotobuf-dev protobuf-compiler libqrencode-dev
 sudo apt-get install unzip
 sudo apt-get install wget
 sudo apt-get install tar
+
+wget http://download.oracle.com/berkeley-db/db-4.8.30.NC.tar.gz
+tar -xvf db-4.8.30.NC.tar.gz
+cd db-4.8.30.NC/build_unix
+mkdir -p build
+BDB_PREFIX=$(pwd)/build
+../dist/configure --disable-shared --enable-cxx --with-pic --prefix=$BDB_PREFIX
+sudo make install
+cd ../..
