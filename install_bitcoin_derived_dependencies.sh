@@ -1,6 +1,7 @@
 sudo apt-get update
 sudo add-apt-repository ppa:bitcoin/bitcoin
 sudo apt-get update
+sudo apt-get install libtool libevent-dev bsdmainutils python3
 sudo apt-get install automake
 sudo apt-get install libdb++-dev
 sudo apt-get install build-essential libtool autotools-dev
