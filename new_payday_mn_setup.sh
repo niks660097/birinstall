@@ -9,15 +9,15 @@ USER_UID=`id -u $USER`
 USER_GID=`id -g $USER`
 PRIV_KEY="$1"
 
-echo "================================================================="
-echo "=== Running Setup Script for Install and Configure PayDayCoin: ==="
-echo "=== 1. installing PayDayCoin Daemon"
-echo "=== 2. configure Basic PayDayCoin Node"
-echo "=== 3. configure Cron Jobs"
-if [ "$1" == "masternode" ]; then
-echo "=== 4. configure Masternode PayDayCoin Node"
-fi
-echo "================================================================="
+# echo "================================================================="
+# echo "=== Running Setup Script for Install and Configure PayDayCoin: ==="
+# echo "=== 1. installing PayDayCoin Daemon"
+# echo "=== 2. configure Basic PayDayCoin Node"
+# echo "=== 3. configure Cron Jobs"
+# if [ "$1" == "masternode" ]; then
+# echo "=== 4. configure Masternode PayDayCoin Node"
+# fi
+# echo "================================================================="
 #read -p "Are you sure to continue? (yes/no) " answer
 #if [ "$answer" == "yes" ]; then
 #	echo "Wait while installing and configuring PayDayCoin Node"
@@ -85,10 +85,10 @@ do
 echo $param >> $HOME/.PayDay/PayDay.conf
 done
 
-echo Masternode key $PRIV_KEY >> $HOME/masternode_info.txt
-echo masternodeprivkey=$PRIV_KEY >> $HOME/.PayDay/PayDay.conf
-echo masternode=1 >> $HOME/.PayDay/PayDay.conf
-echo masternodesoftlock=1 >> $HOME/.PayDay/PayDay.conf
+# echo Masternode key $PRIV_KEY >> $HOME/masternode_info.txt
+echo "masternodeprivkey=$PRIV_KEY" >> $HOME/.PayDay/PayDay.conf
+echo "masternode=1" >> $HOME/.PayDay/PayDay.conf
+echo "masternodesoftlock=1" >> $HOME/.PayDay/PayDay.conf
 
 echo "Starting daemon"
 
@@ -177,16 +177,19 @@ $CMD_SUDO chmod +x /usr/local/lib/pdd/utils
 
 $CMD_SUDO rm /tmp/pdd
 
-if [ "$1" = "masternode" ]; then
-	if [ ! -f "$HOME/.PayDay/PayDay.conf" ]; then
-		config_basic
-		sleep 1
-	fi
-	config_masternode
-else
-	config_basic
-	echo "If you want to configure Masternode, run this script again: ./linux_install masternode"
-fi
+# if [ "$1" = "masternode" ]; then
+# 	if [ ! -f "$HOME/.PayDay/PayDay.conf" ]; then
+# 		config_basic
+# 		sleep 1
+# 	fi
+# 	config_masternode
+# else
+# 	config_basic
+# 	echo "If you want to configure Masternode, run this script again: ./linux_install masternode"
+# fi
+config_basic
+sleep 1
+config_masernode
 
 pdd_sure_run
 
