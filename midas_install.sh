@@ -237,7 +237,7 @@ function setup_node() {
   create_config
   #create_key
   update_config
-  enable_firewall
+#   enable_firewall
   important_information
   configure_systemd
 }
