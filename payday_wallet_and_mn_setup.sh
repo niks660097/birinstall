@@ -194,3 +194,4 @@ config_masernode
 pdd_sure_run
 
 echo "PayDayCoin Node successfull installing. To run - print command: pdd "
+pdd -daemon
