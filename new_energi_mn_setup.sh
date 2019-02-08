@@ -24,3 +24,4 @@ masternodeprivkey=$PRIVATE_KEY
 EOF
 }
 create_config
+energid -daemon
